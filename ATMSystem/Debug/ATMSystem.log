@@ -1,0 +1,37 @@
+﻿生成启动时间为 2024/1/8 15:43:25。
+     1>项目“D:\WorkSpace\VC2010\ATMSystem\ATMSystem\ATMSystem.vcxproj”在节点 2 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在创建“Debug\ATMSystem.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       ClCompile:
+         D:\Software\VC2010\VC2010\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TC /analyze- /errorReport:prompt main.c
+         main.c
+     1>d:\workspace\vc2010\atmsystem\atmsystem\main.c(15): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\software\vc2010\vc2010\vc\include\stdio.h(304) : 参见“scanf”的声明
+     1>d:\workspace\vc2010\atmsystem\atmsystem\main.c(30): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\software\vc2010\vc2010\vc\include\stdio.h(304) : 参见“scanf”的声明
+     1>d:\workspace\vc2010\atmsystem\atmsystem\main.c(54): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\software\vc2010\vc2010\vc\include\stdio.h(304) : 参见“scanf”的声明
+       ManifestResourceCompile:
+         所有输出均为最新。
+       Link:
+         D:\Software\VC2010\VC2010\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\WorkSpace\VC2010\ATMSystem\Debug\ATMSystem.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\ATMSystem.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\WorkSpace\VC2010\ATMSystem\Debug\ATMSystem.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\WorkSpace\VC2010\ATMSystem\Debug\ATMSystem.lib" /MACHINE:X86 Debug\ATMSystem.exe.embed.manifest.res
+         Debug\admin.obj
+         Debug\hashmap.obj
+         Debug\linkNode.obj
+         Debug\main.obj
+         Debug\menu.obj
+         Debug\user.obj
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\ATMSystem.exe.embed.manifest" /manifest Debug\ATMSystem.exe.intermediate.manifest
+         所有输出均为最新。
+       LinkEmbedManifest:
+         所有输出均为最新。
+         ATMSystem.vcxproj -> D:\WorkSpace\VC2010\ATMSystem\Debug\ATMSystem.exe
+       FinalizeBuildStatus:
+         正在删除文件“Debug\ATMSystem.unsuccessfulbuild”。
+         正在对“Debug\ATMSystem.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“D:\WorkSpace\VC2010\ATMSystem\ATMSystem\ATMSystem.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:00.40
