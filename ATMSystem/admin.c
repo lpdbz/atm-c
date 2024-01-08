@@ -3,7 +3,8 @@
 
 //查看所有用户--这个函数似乎要用到linknode会很方便
 void showAllUser(){
-	
+	//直接打印linknode即可，为打印linknode写一个打印函数
+
 }
 
 //查看单个用户的信息和操作记录
