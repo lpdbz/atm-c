@@ -9,6 +9,8 @@ HashMap* hashmap;
 LinkNode* head;
 Customer* custCurrent;//存储当前用户的信息，每一次修改用户信息后，都应该重新赋一次值
 
+//每次相关操作，都需要打印凭条
+
 void initUser(){
 	hashmap = createHash(N);
 	head = createNode();
@@ -43,26 +45,26 @@ void login(){
 
 //注册
 void sign(){
-	Customer* cust = (Customer*)malloc(sizeof(Customer));
+	Customer* user = (Customer*)malloc(sizeof(Customer));
 	char pw[7];
 
 	printf("欢迎来到注册界面\n");	
 	printf("请依次输入您的名字  手机号码  身份证:\n");
-	scanf("%s %s %s",&cust->accountName,&cust->mobile,&cust->sfz);
-	cust->accountCard = atoi(cust->sfz);
+	scanf("%s %s %s",&user->accountName,&user->mobile,&user->sfz);
+	user->accountCard = atoi(user->sfz);
 
-	if(constainsKey(hashmap,cust->accountCard)){
+	if(constainsKey(hashmap,user->accountCard)){
 		printf("用户已存在，请去登录\n");
 		return;
 	}
 
-	printf("注册成功，您的银行卡号为：%d\n",cust->accountCard);
+	printf("注册成功，您的银行卡号为：%d\n",user->accountCard);
 	while(1){
 		printf("请输入您的银行卡密码(6位数):\n");
-		scanf("%s",&cust->password);
+		scanf("%s",&user->password);
 		printf("请再次输入你的银行卡密码:\n");
 		scanf("%s",&pw);
-		if(strcmp(cust->password,pw) != 0){
+		if(strcmp(user->password,pw) != 0){
 			//注册成功后，需要将新注册的用户信息记录下来
 			printf("两次输入密码不一致，请重新输入\n");
 			continue;
@@ -70,8 +72,9 @@ void sign(){
 			break;
 		}
 	}
-	cust->money = 0.0;//注册的时候用户的余额为01
-	putData(hashmap,cust->accountCard,cust);
+	user->money = 0.0;//注册的时候用户的余额为01
+	putData(hashmap,user->accountCard,user);
+	addNode(head,user);
 	filePut();
 	printf("两次输入密码正确，银行卡注册成功!\n");
 	return;
@@ -82,6 +85,8 @@ void updateInfo(){
 	int i=0;
 	int flag = 1;
 	Customer *user = (Customer*)getData(hashmap,custCurrent->accountCard);
+	Customer *user_1 = (Customer*)getData(hashmap,custCurrent->accountCard);
+	user_1 = custCurrent;
 
 	printf("欢迎来到修改个人信息界面:\n");
 	printf("您的信息为：");
@@ -109,7 +114,7 @@ void updateInfo(){
 	//printf("银行卡号：%d，账户名称：%s，手机号码：%s，身份证：%s，密码：%s，余额：%lf\n\n",custCurrent->accountCard,custCurrent->accountName,custCurrent->mobile,custCurrent->sfz,custCurrent->password,custCurrent->money);
 	
 	putData(hashmap,user->accountCard,user);
-	//updateNode(head,newData,oldData,size);//为什么要在链表也存一份数据
+	updateNode(head,custCurrent,user_1,sizeof(user_1));//将更新后的用户信息，也在链表中更新一份
 	printf("修改用户信息成功！ ");
 	system("pause");
 	//将修改后的信息记录到用户源信息中。
@@ -119,6 +124,8 @@ void updateInfo(){
 //修改密码
 void changePW(){
 	char passWord[7],passWord_1[7];
+	Customer *user = (Customer*)getData(hashmap,custCurrent->accountCard);
+	user = custCurrent;
 	printf("欢迎来到修改密码界面\n");
 	while(1){
 		printf("请输入原密码:\n");
@@ -140,11 +147,14 @@ void changePW(){
 	}
 	strcpy(custCurrent->password,passWord_1);
 	putData(hashmap,custCurrent->accountCard,custCurrent);
+	updateNode(head,custCurrent,user,sizeof(custCurrent));//将更新后的用户信息，也在链表中更新一份
 	printf("密码修改成功！\n");
 }
 
 void drawMoney(){
 	int money;
+	Customer *user = (Customer*)getData(hashmap,custCurrent->accountCard);
+	user = custCurrent;
 	printf("请输入您需要取款的金额(只能取款整百元)\n");
 
 	scanf("%d",&money);
@@ -153,6 +163,7 @@ void drawMoney(){
 			printf("您的余额足够，可以为您取出\n");
 			custCurrent->money -= money;
 			putData(hashmap,custCurrent->accountCard,custCurrent);
+			updateNode(head,custCurrent,user,sizeof(custCurrent));//将更新后的用户信息，也在链表中更新一份
 			printf("取款成功！\n");
 			printf("您的银行卡号为：%d,现在的余额为:%f\n",custCurrent->accountCard,custCurrent->money);
 		}else{
@@ -183,6 +194,8 @@ void drawMoneyLogical(){
 //存款业务
 void saveMoney(){
 	float money;
+	Customer *user = (Customer*)getData(hashmap,custCurrent->accountCard);
+	user = custCurrent;
 	printf("欢迎来到存款界面\n");
 	printf("请输入您要存储的钱(只存储整百元)\n");
 	scanf("%f",&money);
@@ -190,6 +203,7 @@ void saveMoney(){
 	if(((int)money)/100 != 0 && ((int)money)%100 == 0){
 		custCurrent->money += money;
 		putData(hashmap,custCurrent->accountCard,custCurrent);
+		updateNode(head,custCurrent,user,sizeof(custCurrent));//将更新后的用户信息，也在链表中更新一份
 		printf("存储成功！\n");
 		printf("您的银行卡号为：%d,现在的余额为:%f\n",custCurrent->accountCard,custCurrent->money);
 	}else{
@@ -229,6 +243,8 @@ void transferMoney(){
 	int flag,accountCard;
 	char accountName[10];
 	float money=0;
+	Customer *user = (Customer*)getData(hashmap,custCurrent->accountCard);
+	user = custCurrent;
 
 	printf("欢迎来到转账界面\n");
 	printf("请输入您需要转账的账号 姓名\n");
@@ -252,6 +268,7 @@ void transferMoney(){
 							custTMP_1->money += money;
 							putData(hashmap,custCurrent->accountCard,custCurrent);
 							putData(hashmap,custTMP_1->accountCard,custTMP_1);
+							updateNode(head,custCurrent,user,sizeof(custCurrent));//将更新后的用户信息，也在链表中更新一份
 							printf("转账成功！");
 					}else{
 						printf("您的账户上余额不足\n");
@@ -280,42 +297,3 @@ void userLoginRecords(){
 	
 }
 
-//将用户的信息存入文件中
-void filePut(){
-	FILE *fp;
-	int i = 0;
-	Customer* custTmp;
-	LinkNode* node = &(hashmap->table[0]);
-
-	fp = fopen("用户源信息.txt","w+");
-	while(node){
-		custTmp = (Customer *)&node->data;
-		fprintf(fp,"%d %s %s %s %s %lf\n",custTmp->accountCard,custTmp->accountName,custTmp->mobile,custTmp->sfz,custTmp->password,custTmp->money);
-		node = node->next;
-	}
-	fclose(fp);
-	return;
-}
-
-//从文件中取出用户信息
-void fileGet(){
-	FILE *fp;
-	Customer custTmp;
-	//HashNode* node = &(hashmap->table[0]);
-	fp = fopen("用户源信息.txt","r");
-	if(fp == NULL){
-		perror("打开文件失败啦");
-		system("pause");
-		exit(1);
-	}
-	while(!feof(fp)){
-		if(fscanf(fp,"%d %s %s %s %s %lf\n",&custTmp.accountCard,&custTmp.accountName,&custTmp.mobile,&custTmp.sfz,&custTmp.password,&custTmp.money)==6){
-				putData(hashmap,custTmp.accountCard,&custTmp);
-				userNum++;
-			}else{
-				printf("暂时没有任何学生信息，请先录入！\n");
-				system("pause");
-			}
-		}
-	fclose(fp);
-}

@@ -41,6 +41,3 @@ void balanceChange();
 //ÓÃ»§µÇÂ¼¼ÇÂ¼
 void userLoginRecords();
 
-void filePut();
-
-void fileGet();

@@ -75,6 +75,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="admin.c" />
+    <ClCompile Include="file.c" />
     <ClCompile Include="hashmap.c" />
     <ClCompile Include="linkNode.c" />
     <ClCompile Include="main.c" />
@@ -83,16 +84,17 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="admin.h" />
+    <ClInclude Include="file.h" />
     <ClInclude Include="hashmap.h" />
     <ClInclude Include="linkNode.h" />
     <ClInclude Include="menu.h" />
     <ClInclude Include="user.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="余额变动记录.txt" />
-    <None Include="用户源信息.txt" />
-    <None Include="用户登录信息.txt" />
-    <None Include="管理员操作文件.txt" />
+    <None Include="用户logs日志文件.txt" />
+    <None Include="未实现的.txt" />
+    <None Include="用户源信息文件.txt" />
+    <None Include="管理员操作日志文件.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

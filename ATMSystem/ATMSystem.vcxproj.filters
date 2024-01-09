@@ -33,6 +33,9 @@
     <ClCompile Include="menu.c">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="file.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="linkNode.h">
@@ -50,18 +53,21 @@
     <ClInclude Include="menu.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="file.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="用户源信息.txt">
+    <None Include="未实现的.txt">
       <Filter>资源文件</Filter>
     </None>
-    <None Include="用户登录信息.txt">
+    <None Include="用户logs日志文件.txt">
       <Filter>资源文件</Filter>
     </None>
-    <None Include="余额变动记录.txt">
+    <None Include="用户源信息文件.txt">
       <Filter>资源文件</Filter>
     </None>
-    <None Include="管理员操作文件.txt">
+    <None Include="管理员操作日志文件.txt">
       <Filter>资源文件</Filter>
     </None>
   </ItemGroup>

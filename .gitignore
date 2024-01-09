@@ -1,27 +1,52 @@
-# 忽略生成的文件
-*.class
-*.jar
+# Prerequisites
+*.d
+
+# Object files
 *.o
-*.pyc
+*.ko
+*.obj
+*.elf
+
+# Linker output
+*.ilk
+*.map
+*.exp
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Libraries
+*.lib
+*.a
+*.la
+*.lo
+
+# Shared objects (inc. Windows DLLs)
 *.dll
+*.so
+*.so.*
+*.dylib
 
-# 忽略敏感信息
-*.key
-*.pem
-*.env
-*.config
+# Executables
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
 
-# 忽略用户特定文件
-*.log
-*.swp
-*.DS_Store
-Thumbs.db
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
 
-# 忽略构建产物和输出
-/bin
-/build
-/dist
-/target
-
-# 忽略第三方库和依
-
+# Kernel Module Compile Results
+*.mod*
+*.cmd
+.tmp_versions/
+modules.order
+Module.symvers
+Mkfile.old
+dkms.conf
