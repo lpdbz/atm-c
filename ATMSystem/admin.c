@@ -6,6 +6,7 @@
 
 HashMap *hashmap;
 
+
 //查看所有用户
 void showAllUser(){
 	//直接打印linknode即可
@@ -53,4 +54,36 @@ void assistUserChangePW(int accountCard){
 		printf("密码修改成功！\n");
 	}
 	return;
+}
+
+//将管理员操作日志文件存入文件中
+void admin_filePut(char* ch){
+	FILE *fp;
+	char time[30];
+
+	fp = fopen("管理员操作日志文件.txt","w+");
+	fprintf(fp,"%s %s\n",time,ch);
+	fclose(fp);
+	return;
+}
+
+//从文件中取出管理员操作日志
+void admin_fileGet(){
+	FILE *fp;
+	char ch[10],time[30];
+	fp = fopen("管理员操作日志文件.txt","r");
+	if(fp == NULL){
+		perror("打开文件失败啦");
+		system("pause");
+		exit(1);
+	}
+	while(!feof(fp)){
+		if(fscanf(fp,"%s\n",&ch)==1){
+				printf("管理员的操作为：%s %s",time,ch);
+			}else{
+				printf("管理员暂时没有操作！\n");
+				system("pause");
+			}
+		}
+	fclose(fp);
 }

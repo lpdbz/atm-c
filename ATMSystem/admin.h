@@ -1,3 +1,4 @@
+#pragma once
 void showAllUser();
 
 void showSignalUser(int accountCard);

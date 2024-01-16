@@ -1,0 +1,1 @@
+char* currentTime(char* time);

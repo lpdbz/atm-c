@@ -2,13 +2,13 @@
 #include<stdlib.h>
 #include"menu.h"
 #include"user.h"
-#include"hashmap.h"
-#define N 100
+#include"admin.h"
+
 
 void sign_loginOperator(){
 	int a,flag=1;
 	initUser();
-	fileGet();
+
 	while(flag){
 		sign_loginMenu();
 		printf("请选择注册登录操作：\n");
@@ -16,7 +16,7 @@ void sign_loginOperator(){
 		switch(a){
 		case 1:sign();system("pause");break;
 		case 2:login();system("pause");flag=0;break;
-		case 0:flag=0;break;
+		case 0:flag=0;break;//返回到上一个界面，现在有问题，返回的是下一个界面
 		default:printf("输入有误，请重新输入\n");system("pause");
 		}
 		system("cls");
@@ -43,7 +43,20 @@ void userOperator(){
 }
 
 void adminOperator(){
-	adminMenu();
+	int flag=1,i;
+	initUser();
+
+	while(flag){
+		adminMenu();
+		scanf("%d",&i);
+		switch(i){
+		case 1:showAllUser();system("pause");break;
+		//case 2:showSignalUser(accountCard);system("pause");break;
+		case 3:showBankMoney();system("pause");break;
+		//case 4:assistUserChangePW(accountCard);system("pause");break;
+		}
+	}
+	
 }
 
 void main(){

@@ -33,7 +33,7 @@
     <ClCompile Include="menu.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="file.c">
+    <ClCompile Include="time.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -53,7 +53,7 @@
     <ClInclude Include="menu.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="file.h">
+    <ClInclude Include="time.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

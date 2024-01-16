@@ -4,6 +4,7 @@
 #include<string.h>
 #include "linkNode.h"
 
+// 初始化一个节点
 LinkNode* createNode(){
 	LinkNode* head;
 	head = (LinkNode*)malloc(sizeof(LinkNode));
@@ -11,16 +12,18 @@ LinkNode* createNode(){
 	return head;
 }
 
+// 添加节点
 void addNode(LinkNode* head,void* data){
 	while(head->next){
-		head = head->next;
+		head = nextNode(head);
 	}
 	head->next = (LinkNode*)malloc(sizeof(LinkNode));
-	head = head->next;
+	head = nextNode(head);
 	head->data = data;
-	head->next = NULL;
+ 	head->next = NULL;
 }
 
+// 删除节点
 void deleted(LinkNode* head,void* data,int size){
 	LinkNode* temp;
 	while(head->next){
@@ -44,10 +47,12 @@ void updateNode(LinkNode* head,void* newData,void* oldData,int size){
 	}
 }
 
+// 检查是否存在某节点，传入地址，地址可以变化
 int checkDataNode(void* origin,void* now,int size){
 	return memcmp(origin,now,size)==0 ? 1:0;
 }
 
+// 返回当前节点的下一个节点
 LinkNode* nextNode(LinkNode* node){
 	return node->next;
 }

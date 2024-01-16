@@ -1,5 +1,8 @@
+#pragma once
 #include<stdio.h>
 #include<stdlib.h>
+#include"linkNode.h"
+#include"hashmap.h"
 
 typedef struct Customer{
 	int accountCard;//账户卡号
@@ -9,6 +12,7 @@ typedef struct Customer{
 	char password[7];//密码  密码输入，在控制台上显示“*”号
 	double money;//账户余额
 }Customer;
+
 
 //初始化user
 void initUser();
@@ -41,3 +45,10 @@ void balanceChange();
 //用户登录记录
 void userLoginRecords();
 
+//注册时用户源信息存入文件
+void user_filePut(Customer *custTmp);
+
+//更新时用户源信息存入文件
+void userUpgrade_filePut(LinkNode* head,LinkNode* time);
+
+void userLink_fileGet(HashMap *hashmap,LinkNode *head,int userNum);
