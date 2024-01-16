@@ -18,3 +18,5 @@ int checkDataNode(void* origin,void* now,int size);
 LinkNode* nextNode(LinkNode* node);
 
 void destoryLinkNode(LinkNode* head);
+
+void printLink(LinkNode* head);

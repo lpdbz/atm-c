@@ -4,7 +4,17 @@
 #include"linkNode.h"
 #include"hashmap.h"
 
+typedef struct user{
+	int accountCard;//账户卡号
+	char accountName[10];//账户名称
+	char mobile[12];//手机号码
+	char sfz[19];//身份证
+	char password[7];//密码  密码输入，在控制台上显示“*”号
+	double money;//账户余额
+}user;
+
 typedef struct Customer{
+
 	int accountCard;//账户卡号
 	char accountName[10];//账户名称
 	char mobile[12];//手机号码
@@ -42,8 +52,8 @@ void transferMoney();
 //余额变动记录
 void balanceChange();
 
-//用户登录记录
-void userLoginRecords();
+//用户日志logs记录
+void userLogsRecords(Customer *custTmp,char *oper);
 
 //注册时用户源信息存入文件
 void user_filePut(Customer *custTmp);

@@ -32,7 +32,6 @@ void* getData(HashMap* hashmap,int key){
 
 	//得到hash散列值
 	pos = hash(hashmap,key);
-
 	//拿到要找的数据的头结点
 	head = &(hashmap->table[pos]);
 	node = nextNode(head);

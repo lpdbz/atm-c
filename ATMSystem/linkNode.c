@@ -68,3 +68,10 @@ void destoryLinkNode(LinkNode* head){
 	}
 	free(head);
 }
+
+// 打印链表里面的值
+void printLink(LinkNode* head){
+	while(nextNode(head)){
+		printf("链表里面的值为：%s\n",head->data);
+	}
+}

@@ -25,6 +25,7 @@ void initUser(){
 
 //登录
 void login(){
+	char *oper = "登录";
 	int accountCard;
 	char password[7];
 
@@ -35,14 +36,16 @@ void login(){
 
 	while(1){
 		scanf("%d %s",&accountCard,&password);
+		//为什么hashmap返回的出错了，明明getData没有问题！！！
 		user = (Customer*)getData(hashmap,accountCard);
-		//printf("登录时获取hashmap的打印：银行卡号：%d，账户名称：%s，手机号码：%s，身份证：%s，密码：******，余额：%lf\n\n",user->accountCard,user->accountName,user->mobile,user->sfz,user->money);
+		printf("登录时获取hashmap的打印：银行卡号：%d，账户名称：%s，手机号码：%s，身份证：%s，密码：******，余额：%lf\n\n",user->accountCard,user->accountName,user->mobile,user->sfz,user->money);
 		//去记录中查找，检查1.是否存在此卡号；2.密码是否正确
 		if(user!=NULL){
-			//检查密码是否输入正确
+			//接下来检查密码是否输入正确
 			custCurrent = user; //查找成功，就将查找到的信息赋值一份给custCurrent，便于后面一直拿到用户的信息
 			if(strcmp(password,user->password)==0){
 				//将用户信息记录到日志logs记录文件中
+				userLogsRecords(custCurrent,oper);
 				printf("登录成功，请继续接下来的操作\n");
 				return;	
 			}
@@ -312,9 +315,15 @@ void balanceChange(){
 	
 }
 
-//用户登录记录
-void userLoginRecords(){
-	
+//用户的日志logs记录
+void userLogsRecords(Customer *custTmp,char *oper){
+	FILE *fp;
+	char time[30];
+	fp = fopen("用户logs日志文件.txt","a");
+	currentTime(time);
+	fprintf(fp,"%s %d %s %s\n",time,custTmp->accountCard,custTmp->accountName,oper);
+	fclose(fp);
+	return;
 }
 
 void userLink_fileGet(HashMap *hashmap,LinkNode *head,int userNum){
@@ -369,6 +378,10 @@ void userUpgrade_filePut(LinkNode* head,LinkNode* time){
 		custTmp = (Customer*)head->data;
 		nextNode(time);
 		time1 = (char*)(time->data);
+		printf("head1的链表为：\n");
+		printLink(head);
+		printf("time的链表为：\n");
+		printLink(head);
 		fprintf(fp,"%s %d %s %s %s %s %f\n",time1,custTmp->accountCard,custTmp->accountName,custTmp->mobile,custTmp->sfz,custTmp->password,custTmp->money);
 	}
 }
