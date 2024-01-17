@@ -8,13 +8,14 @@
 LinkNode* createNode(){
 	LinkNode* head;
 	head = (LinkNode*)malloc(sizeof(LinkNode));
+	head->data = NULL;
 	head->next = NULL;
 	return head;
 }
 
 // 添加节点
 void addNode(LinkNode* head,void* data){
-	while(head->next){
+	while(nextNode(head)){
 		head = nextNode(head);
 	}
 	head->next = (LinkNode*)malloc(sizeof(LinkNode));
@@ -72,6 +73,7 @@ void destoryLinkNode(LinkNode* head){
 // 打印链表里面的值
 void printLink(LinkNode* head){
 	while(nextNode(head)){
+		head = nextNode(head);
 		printf("链表里面的值为：%s\n",head->data);
 	}
 }

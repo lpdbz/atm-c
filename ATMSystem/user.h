@@ -4,17 +4,8 @@
 #include"linkNode.h"
 #include"hashmap.h"
 
-typedef struct user{
-	int accountCard;//账户卡号
-	char accountName[10];//账户名称
-	char mobile[12];//手机号码
-	char sfz[19];//身份证
-	char password[7];//密码  密码输入，在控制台上显示“*”号
-	double money;//账户余额
-}user;
-
 typedef struct Customer{
-
+	char Time[30];//开户时间用户时间
 	int accountCard;//账户卡号
 	char accountName[10];//账户名称
 	char mobile[12];//手机号码
@@ -59,6 +50,6 @@ void userLogsRecords(Customer *custTmp,char *oper);
 void user_filePut(Customer *custTmp);
 
 //更新时用户源信息存入文件
-void userUpgrade_filePut(LinkNode* head,LinkNode* time);
+void userUpgrade_filePut(LinkNode* head);
 
-void userLink_fileGet(HashMap *hashmap,LinkNode *head,int userNum);
+void user_fileGet(HashMap *hashmap,LinkNode *head,int userNum);
