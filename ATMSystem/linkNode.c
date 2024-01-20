@@ -43,7 +43,8 @@ void updateNode(LinkNode* head,void* newData,void* oldData,int size){
 	while(head->next){
 		head = head->next;
 		if(checkDataNode(head->data,oldData,size)){
-			head->data = newData;
+			memcpy(newData,oldData,size);
+			return;
 		}
 	}
 }

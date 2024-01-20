@@ -36,6 +36,9 @@
     <ClCompile Include="time.c">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="test.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="linkNode.h">
@@ -68,6 +71,9 @@
       <Filter>资源文件</Filter>
     </None>
     <None Include="管理员操作日志文件.txt">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="银行总金额变化文件.txt">
       <Filter>资源文件</Filter>
     </None>
   </ItemGroup>

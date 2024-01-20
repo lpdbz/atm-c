@@ -1,4 +1,5 @@
 #pragma once
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
@@ -20,7 +21,7 @@ HashMap* createHash(int size);
 
 void* getData(HashMap* hashmap,int key);
 
-void putData(HashMap* hashmap,int key,void* value);
+void putData(HashMap* hashmap,void* value);
 
 void destoryHashMap(HashMap* hashmap);
 

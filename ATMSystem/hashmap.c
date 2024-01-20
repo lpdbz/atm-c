@@ -46,25 +46,20 @@ void* getData(HashMap* hashmap,int key){
 	return NULL;	
 }
 
-//如果是hashmap中已经存在的key呢，好像没有判断，应该是更新
-//hashmap的新增和更新操作应该合并
-void putData(HashMap* hashmap,int key,void* value){
+//hashmap的添加数据是新增和更新操作的合并
+void putData(HashMap* hashmap,void* data){
 	int pos;
-	DataType* data,*data1;
+	DataType *data1;
 	LinkNode* head;
 
-	data = (DataType*)malloc(sizeof(DataType));
-	data->key = key;
-	data->value = value;
-
 	//得到hash散列值
-	pos = hash(hashmap,key);
+	pos = hash(hashmap,((DataType*)data)->key);
 	head = &(hashmap->table[pos]);
 
 	//如果hashmap中存在，则更新节点；如果不存在，则添加节点
-	if((DataType*)getData(hashmap,key)){
-		data1 = (DataType*)getData(hashmap,key);
-		updateNode(head,data,data1,sizeof(data1));
+	if((DataType*)getData(hashmap,((DataType*)data)->key)){
+		data1 = (DataType*)getData(hashmap,((DataType*)data)->key);
+		updateNode(head,data,data1,sizeof(DataType));
 	}else{
 		//向找到的链表的头结点中插入数据
 		addNode(head,data);

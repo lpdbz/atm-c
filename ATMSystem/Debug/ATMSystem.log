@@ -1,82 +1,66 @@
-﻿生成启动时间为 2024/1/17 9:48:58。
+﻿生成启动时间为 2024/1/20 18:32:30。
      1>项目“D:\WorkSpace\VC2010\ATMSystem\ATMSystem\ATMSystem.vcxproj”在节点 2 上(build 个目标)。
      1>InitializeBuildStatus:
          正在创建“Debug\ATMSystem.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
        ClCompile:
-         D:\Software\VC2010\VC2010\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TC /analyze- /errorReport:prompt admin.c hashmap.c main.c user.c
+         D:\Software\VC2010\VC2010\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TC /analyze- /errorReport:prompt user.c
          user.c
-     1>d:\workspace\vc2010\atmsystem\atmsystem\user.c(35): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>d:\workspace\vc2010\atmsystem\atmsystem\user.c(32): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  d:\software\vc2010\vc2010\vc\include\stdio.h(304) : 参见“scanf”的声明
-     1>d:\workspace\vc2010\atmsystem\atmsystem\user.c(63): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>d:\workspace\vc2010\atmsystem\atmsystem\user.c(61): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\software\vc2010\vc2010\vc\include\stdio.h(304) : 参见“scanf”的声明
+     1>d:\workspace\vc2010\atmsystem\atmsystem\user.c(72): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  d:\software\vc2010\vc2010\vc\include\stdio.h(304) : 参见“scanf”的声明
      1>d:\workspace\vc2010\atmsystem\atmsystem\user.c(74): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  d:\software\vc2010\vc2010\vc\include\stdio.h(304) : 参见“scanf”的声明
-     1>d:\workspace\vc2010\atmsystem\atmsystem\user.c(76): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 d:\software\vc2010\vc2010\vc\include\stdio.h(304) : 参见“scanf”的声明
-     1>d:\workspace\vc2010\atmsystem\atmsystem\user.c(116): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 d:\software\vc2010\vc2010\vc\include\stdio.h(304) : 参见“scanf”的声明
      1>d:\workspace\vc2010\atmsystem\atmsystem\user.c(118): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 d:\software\vc2010\vc2010\vc\include\stdio.h(304) : 参见“scanf”的声明
-     1>d:\workspace\vc2010\atmsystem\atmsystem\user.c(119): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  d:\software\vc2010\vc2010\vc\include\stdio.h(304) : 参见“scanf”的声明
      1>d:\workspace\vc2010\atmsystem\atmsystem\user.c(120): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  d:\software\vc2010\vc2010\vc\include\stdio.h(304) : 参见“scanf”的声明
-     1>d:\workspace\vc2010\atmsystem\atmsystem\user.c(149): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>d:\workspace\vc2010\atmsystem\atmsystem\user.c(121): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  d:\software\vc2010\vc2010\vc\include\stdio.h(304) : 参见“scanf”的声明
-     1>d:\workspace\vc2010\atmsystem\atmsystem\user.c(153): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>d:\workspace\vc2010\atmsystem\atmsystem\user.c(122): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  d:\software\vc2010\vc2010\vc\include\stdio.h(304) : 参见“scanf”的声明
-     1>d:\workspace\vc2010\atmsystem\atmsystem\user.c(165): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>d:\workspace\vc2010\atmsystem\atmsystem\user.c(147): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\software\vc2010\vc2010\vc\include\stdio.h(304) : 参见“scanf”的声明
+     1>d:\workspace\vc2010\atmsystem\atmsystem\user.c(151): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\software\vc2010\vc2010\vc\include\stdio.h(304) : 参见“scanf”的声明
+     1>d:\workspace\vc2010\atmsystem\atmsystem\user.c(163): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  d:\software\vc2010\vc2010\vc\include\string.h(105) : 参见“strcpy”的声明
-     1>d:\workspace\vc2010\atmsystem\atmsystem\user.c(181): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>d:\workspace\vc2010\atmsystem\atmsystem\user.c(178): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  d:\software\vc2010\vc2010\vc\include\stdio.h(304) : 参见“scanf”的声明
-     1>d:\workspace\vc2010\atmsystem\atmsystem\user.c(207): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>d:\workspace\vc2010\atmsystem\atmsystem\user.c(205): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  d:\software\vc2010\vc2010\vc\include\stdio.h(304) : 参见“scanf”的声明
-     1>d:\workspace\vc2010\atmsystem\atmsystem\user.c(225): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>d:\workspace\vc2010\atmsystem\atmsystem\user.c(223): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  d:\software\vc2010\vc2010\vc\include\stdio.h(304) : 参见“scanf”的声明
-     1>d:\workspace\vc2010\atmsystem\atmsystem\user.c(251): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>d:\workspace\vc2010\atmsystem\atmsystem\user.c(250): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  d:\software\vc2010\vc2010\vc\include\stdio.h(304) : 参见“scanf”的声明
-     1>d:\workspace\vc2010\atmsystem\atmsystem\user.c(284): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>d:\workspace\vc2010\atmsystem\atmsystem\user.c(285): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  d:\software\vc2010\vc2010\vc\include\stdio.h(304) : 参见“scanf”的声明
      1>d:\workspace\vc2010\atmsystem\atmsystem\user.c(292): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  d:\software\vc2010\vc2010\vc\include\stdio.h(304) : 参见“scanf”的声明
      1>d:\workspace\vc2010\atmsystem\atmsystem\user.c(295): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  d:\software\vc2010\vc2010\vc\include\stdio.h(304) : 参见“scanf”的声明
-     1>d:\workspace\vc2010\atmsystem\atmsystem\user.c(334): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>d:\workspace\vc2010\atmsystem\atmsystem\user.c(304): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\software\vc2010\vc2010\vc\include\string.h(110) : 参见“strcat”的声明
+     1>d:\workspace\vc2010\atmsystem\atmsystem\user.c(305): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\software\vc2010\vc2010\vc\include\string.h(110) : 参见“strcat”的声明
+     1>d:\workspace\vc2010\atmsystem\atmsystem\user.c(335): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  d:\software\vc2010\vc2010\vc\include\stdio.h(234) : 参见“fopen”的声明
-     1>d:\workspace\vc2010\atmsystem\atmsystem\user.c(346): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>d:\workspace\vc2010\atmsystem\atmsystem\user.c(348): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  d:\software\vc2010\vc2010\vc\include\stdio.h(234) : 参见“fopen”的声明
-     1>d:\workspace\vc2010\atmsystem\atmsystem\user.c(355): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>d:\workspace\vc2010\atmsystem\atmsystem\user.c(356): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  d:\software\vc2010\vc2010\vc\include\stdio.h(253) : 参见“fscanf”的声明
-     1>d:\workspace\vc2010\atmsystem\atmsystem\user.c(372): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>d:\workspace\vc2010\atmsystem\atmsystem\user.c(377): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  d:\software\vc2010\vc2010\vc\include\stdio.h(234) : 参见“fopen”的声明
-     1>d:\workspace\vc2010\atmsystem\atmsystem\user.c(382): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>d:\workspace\vc2010\atmsystem\atmsystem\user.c(394): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  d:\software\vc2010\vc2010\vc\include\stdio.h(234) : 参见“fopen”的声明
-         main.c
-     1>d:\workspace\vc2010\atmsystem\atmsystem\main.c(15): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 d:\software\vc2010\vc2010\vc\include\stdio.h(304) : 参见“scanf”的声明
-     1>d:\workspace\vc2010\atmsystem\atmsystem\main.c(30): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 d:\software\vc2010\vc2010\vc\include\stdio.h(304) : 参见“scanf”的声明
-     1>d:\workspace\vc2010\atmsystem\atmsystem\main.c(51): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 d:\software\vc2010\vc2010\vc\include\stdio.h(304) : 参见“scanf”的声明
-     1>d:\workspace\vc2010\atmsystem\atmsystem\main.c(67): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 d:\software\vc2010\vc2010\vc\include\stdio.h(304) : 参见“scanf”的声明
-         hashmap.c
-         admin.c
-     1>d:\workspace\vc2010\atmsystem\atmsystem\admin.c(47): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 d:\software\vc2010\vc2010\vc\include\stdio.h(304) : 参见“scanf”的声明
-     1>d:\workspace\vc2010\atmsystem\atmsystem\admin.c(49): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 d:\software\vc2010\vc2010\vc\include\stdio.h(304) : 参见“scanf”的声明
-     1>d:\workspace\vc2010\atmsystem\atmsystem\admin.c(52): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 d:\software\vc2010\vc2010\vc\include\string.h(105) : 参见“strcpy”的声明
-     1>d:\workspace\vc2010\atmsystem\atmsystem\admin.c(64): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>d:\workspace\vc2010\atmsystem\atmsystem\user.c(405): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  d:\software\vc2010\vc2010\vc\include\stdio.h(234) : 参见“fopen”的声明
-     1>d:\workspace\vc2010\atmsystem\atmsystem\admin.c(74): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>d:\workspace\vc2010\atmsystem\atmsystem\user.c(412): warning C4996: 'strdup': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _strdup. See online help for details.
+                 d:\software\vc2010\vc2010\vc\include\string.h(238) : 参见“strdup”的声明
+     1>d:\workspace\vc2010\atmsystem\atmsystem\user.c(435): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  d:\software\vc2010\vc2010\vc\include\stdio.h(234) : 参见“fopen”的声明
-     1>d:\workspace\vc2010\atmsystem\atmsystem\admin.c(81): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 d:\software\vc2010\vc2010\vc\include\stdio.h(253) : 参见“fscanf”的声明
-         正在生成代码...
-     1>d:\workspace\vc2010\atmsystem\atmsystem\admin.c(15): warning C4700: 使用了未初始化的局部变量“head”
-     1>d:\workspace\vc2010\atmsystem\atmsystem\admin.c(37): warning C4700: 使用了未初始化的局部变量“BankMoney”
        ManifestResourceCompile:
          所有输出均为最新。
        Link:
@@ -86,6 +70,7 @@
          Debug\linkNode.obj
          Debug\main.obj
          Debug\menu.obj
+         Debug\test.obj
          Debug\time.obj
          Debug\user.obj
        Manifest:
@@ -101,4 +86,4 @@
 
 生成成功。
 
-已用时间 00:00:00.49
+已用时间 00:00:00.47

@@ -79,6 +79,7 @@
     <ClCompile Include="linkNode.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="menu.c" />
+    <ClCompile Include="test.c" />
     <ClCompile Include="time.c" />
     <ClCompile Include="user.c" />
   </ItemGroup>
@@ -95,6 +96,7 @@
     <None Include="未实现的.txt" />
     <None Include="用户源信息文件.txt" />
     <None Include="管理员操作日志文件.txt" />
+    <None Include="银行总金额变化文件.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

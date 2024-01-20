@@ -1,8 +1,10 @@
 #pragma once
+
 #include<stdio.h>
 #include<stdlib.h>
 #include"linkNode.h"
 #include"hashmap.h"
+
 
 typedef struct Customer{
 	char Time[30];//开户时间用户时间
@@ -53,3 +55,9 @@ void user_filePut(Customer *custTmp);
 void userUpgrade_filePut(LinkNode* head);
 
 void user_fileGet(HashMap *hashmap,LinkNode *head,int userNum);
+
+// 记录银行总体金额变化
+void Bank_TotalAmountChange(char *oper,Customer *custTmp,double money);
+
+// 从银行总金额文件中获取全部的信息Bank_TotalAmountChange;
+void Bank_TotalAmount_fileGet(double BankTotalMoney);
