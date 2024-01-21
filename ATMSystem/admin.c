@@ -71,13 +71,26 @@ void showSignalUser(){
 
 //查看银行整体金额变化--金额变动记录是记录单个用户每一次操作了金额变化（如存取款操作），读文件展示出来，并在最后添加一个
 //变量记录总金额变化即可
-void showBankMoney(){
-	char *oper = "查看银行整体金额变化";
-	double BankMoney;//记录银行总金额变化
-	Customer* user = (Customer*)malloc(sizeof(Customer));
-	printf("账户卡号为 %d操作记录是：存款|取款|转账：%d，账户总金额为：%lf\n",user->accountCard,user->money,BankMoney);
-	adminLogsRecords(adminName,adminPW,oper);
-	return;
+void showBankMoney() {
+    FILE *fp;
+	char time[30];
+	double money = 0.0; // 操作的金额
+	double BankTotalMoney = 0.0; // 银行总体金额
+	char oper[20];
+    int accountCard;
+
+    fp = fopen("银行总金额变化文件.txt", "r");
+    if (fp == NULL) {
+        perror("打开文件失败啦");
+        system("pause");
+        exit(1);
+    }
+	printf("银行银行整体金额变化：\n");
+    while (!feof(fp)) {
+		fscanf(fp,"%s %d %s %lf %lf\n",&time,&accountCard,&oper,&money,&BankTotalMoney);
+		printf("%s %d %s %lf %lf\n",time,accountCard,oper,money,BankTotalMoney);
+	}
+    fclose(fp);
 }
 
 // 帮助用户修改密码

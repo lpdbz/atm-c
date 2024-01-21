@@ -8,17 +8,19 @@
 
 #define N 10
 int userNum = 0; // 记录现在银行共有多少个用户
-static double BankTotalMoney = 0.0;
+double BankTotalMoney;
 
 HashMap* hashmap;//第一次运行的时候，会从文件中读取所有用户，在注册的时候，不仅会往文件中写入一份，也会往hashmap写入一份
 LinkNode* head;//head同hashmap一样，head和hashmap的指针里面存储着同一块地址（即可以获取修改同一块地址里面的内容）
 Customer* custCurrent;//存储当前用户的信息，每一次修改用户信息后，都应该重新赋一次值
 
+void Bank_TotalAmount_fileGet(double *money);
+
 void initUser(){
 	hashmap = createHash(N);
 	head = createNode();
 	user_fileGet(hashmap,head,userNum);
-	Bank_TotalAmount_fileGet(BankTotalMoney);
+	BankTotalMoney = getBankTotalAmountFromFile();
 }
 
 //登录
@@ -116,6 +118,7 @@ void updateInfo(){
 		printf("0 退出修改个人信息界面\n");
 
 		scanf("%d",&i);
+		// 修改的信息如果是一样的没有校验！
 		switch(i){
 		case 1:printf("请输入账户名称:\n");scanf("%s", &user->accountName);break;
 		case 2:printf("请输入电话号码:\n");scanf("%s", &user->mobile);break;
@@ -180,8 +183,8 @@ void drawMoney(){
 		if(money <= custCurrent->money){
 			printf("您的余额足够，可以为您取出\n");
 			custCurrent->money -= money;
-			putData(hashmap,custCurrent);
-			updateNode(head,custCurrent,user,sizeof(custCurrent));//将更新后的用户信息，也在链表中更新一份
+			// putData(hashmap,custCurrent);
+			// updateNode(head,custCurrent,user,sizeof(custCurrent));//将更新后的用户信息，也在链表中更新一份
 			userUpgrade_filePut(head);
 			userLogsRecords(custCurrent,oper);
 			Bank_TotalAmountChange(oper,custCurrent,money);
@@ -270,8 +273,8 @@ void showMoney(){
 
 //转账--目前只能本行转账本行
 void transferMoney(){
-	char oper[10] = "转账";
-	char oper1[10] = "转账";
+	char oper[20] = "转账";
+	char oper1[20] = "转账";
 	Customer* custTMP_1;
 	int flag,accountCard;
 	char accountName[10];
@@ -302,7 +305,7 @@ void transferMoney(){
 									userUpgrade_filePut(head);
 									userLogsRecords(custCurrent,oper);
 									Bank_TotalAmountChange(strcat(oper,"发起方"),custCurrent,money);
-									Bank_TotalAmountChange(strcat(oper1,"接收方"),custCurrent,money);
+									Bank_TotalAmountChange(strcat(oper1,"接收方"),custTMP_1,money);
 									printf("转账成功！");
 									return;
 								}else{
@@ -339,7 +342,7 @@ void userLogsRecords(Customer *custTmp,char *oper){
 	return;
 }
 
-// 从文件中获取全部的信息
+// 从源文件中获取全部的信息
 void user_fileGet(HashMap *hashmap, LinkNode *head, int userNum) {
     FILE *fp;
     Customer custTmp;
@@ -370,6 +373,35 @@ void user_fileGet(HashMap *hashmap, LinkNode *head, int userNum) {
 }
 
 
+// 从银行总金额变化文件中获取当前用户全部的信息
+void getUserBalanceChangeFromFile() {
+    FILE *fp;
+    char time[30];
+	double money = 0.0; // 操作的金额
+	double BankTotalMoney = 0.0; // 银行总体金额
+	char oper[20];
+    int accountCard = 0;
+
+    fp = fopen("银行总金额变化文件.txt", "r");
+    if (fp == NULL) {
+        perror("打开文件失败啦");
+        system("pause");
+        exit(1);
+    }
+
+	printf("您的余额变动记录为：\n");
+    while (!feof(fp)) {
+		fscanf(fp,"%s %d %s %lf %lf\n",&time,&accountCard,&oper,&money,&BankTotalMoney);
+		if(custCurrent->accountCard == accountCard){
+			printf("%s %d %s %lf\n",time,accountCard,oper,money);
+		}
+	}
+
+    fclose(fp);
+}
+
+
+
 //注册：将用户的信息存入文件中
 void user_filePut(Customer *custTmp){
 	FILE *fp;
@@ -386,9 +418,9 @@ void Bank_TotalAmountChange(char *oper,Customer *custTmp,double money){
 	FILE *fp;
 	char time[30];
 	currentTime(time);
-	if(strcmp(oper,"存款")){
+	if(strcmp(oper,"存款") == 0){
 		BankTotalMoney += money;
-	}else if(strcmp(oper,"取款")){
+	}else if(strcmp(oper,"取款") == 0){
 		BankTotalMoney -= money;
 	}
 	fp = fopen("银行总金额变化文件.txt","a");
@@ -397,8 +429,9 @@ void Bank_TotalAmountChange(char *oper,Customer *custTmp,double money){
 	return;
 }
 
-// 从银行总金额文件中获取全部的信息Bank_TotalAmountChange;
-void Bank_TotalAmount_fileGet(double BankTotalMoney) {
+// 从银行总金额文件中获取最新的信息--Bank_TotalAmountChange;
+int getBankTotalAmountFromFile() {
+	double money = 0.0;
     //double BankTotalMoney = 0;
     char line[256];
     char *last_line = NULL;
@@ -415,14 +448,13 @@ void Bank_TotalAmount_fileGet(double BankTotalMoney) {
     if (last_line != NULL) {
         char *last_num_str = strrchr(last_line, ' ');
         if (last_num_str != NULL) {
-            BankTotalMoney = atoi(last_num_str);
+            money = atof(last_num_str);
         }
         free(last_line);
     }
-
-    printf("The last number in the file is: %lf\n", BankTotalMoney);
+    // printf("The last number in the file is: %lf\n", money);
     fclose(fp);
-    return;
+    return money;
 }
 
 

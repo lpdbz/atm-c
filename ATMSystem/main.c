@@ -19,6 +19,7 @@ void sign_loginOperator(){
 		case 0:flag=0;break;//返回到上一个界面，现在有问题，返回的是下一个界面
 		default:printf("输入有误，请重新输入\n");system("pause");
 		}
+		fflush(stdin); 
 		system("cls");
 	}
 }
@@ -35,7 +36,7 @@ void admin_loginOperator(){
 		case 0:flag=0;break;//返回到上一个界面，现在有问题，返回的是下一个界面
 		default:printf("输入有误，请重新输入\n");system("pause");
 		}
-
+		fflush(stdin); 
 		system("cls");
 	}
 }
@@ -52,9 +53,11 @@ void userOperator(){
 		case 4:showMoney();system("pause");break;
 		case 5:changePW();system("pause");break;
 		case 6:updateInfo();system("pause");break;
+		case 7:getUserBalanceChangeFromFile();system("pause");break;
 		case 0:flag=0;system("pause");break;
 		default:printf("输入有误，请重新输入\n");
 		}
+		fflush(stdin); 
 		system("cls");
 	}
 }
@@ -72,6 +75,7 @@ void adminOperator(){
 		case 0:flag=0;system("pause");break;
 		default:printf("输入有误，请重新输入\n");
 		}
+		fflush(stdin); 
 		system("cls");
 	}
 }
@@ -88,6 +92,7 @@ void main(){
 		case 0:flag=0;break;
 		default:printf("输入有误，请重新输入");break;
 		}
+		fflush(stdin); 
 		system("cls");
 	}
 }
