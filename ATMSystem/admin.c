@@ -5,168 +5,170 @@
 #include"hashmap.h"
 #include"time.h"
 
-HashMap* hashmap;//µÚÒ»´ÎÔËĞĞµÄÊ±ºò£¬»á´ÓÎÄ¼şÖĞ¶ÁÈ¡ËùÓĞÓÃ»§£¬ÔÚ×¢²áµÄÊ±ºò£¬²»½ö»áÍùÎÄ¼şÖĞĞ´ÈëÒ»·İ£¬Ò²»áÍùhashmapĞ´ÈëÒ»·İ
-LinkNode* head;//headÍ¬hashmapÒ»Ñù£¬headºÍhashmapµÄÖ¸ÕëÀïÃæ´æ´¢×ÅÍ¬Ò»¿éµØÖ·£¨¼´¿ÉÒÔ»ñÈ¡ĞŞ¸ÄÍ¬Ò»¿éµØÖ·ÀïÃæµÄÄÚÈİ£©
+HashMap* hashmap;//ç¬¬ä¸€æ¬¡è¿è¡Œçš„æ—¶å€™ï¼Œä¼šä»æ–‡ä»¶ä¸­è¯»å–æ‰€æœ‰ç”¨æˆ·ï¼Œåœ¨æ³¨å†Œçš„æ—¶å€™ï¼Œä¸ä»…ä¼šå¾€æ–‡ä»¶ä¸­å†™å…¥ä¸€ä»½ï¼Œä¹Ÿä¼šå¾€hashmapå†™å…¥ä¸€ä»½
+LinkNode* head;//headåŒhashmapä¸€æ ·ï¼Œheadå’Œhashmapçš„æŒ‡é’ˆé‡Œé¢å­˜å‚¨ç€åŒä¸€å—åœ°å€ï¼ˆå³å¯ä»¥è·å–ä¿®æ”¹åŒä¸€å—åœ°å€é‡Œé¢çš„å†…å®¹ï¼‰
 char adminName[5] = "root";
 char adminPW[5] = "root";
 
 static void adminLogsRecords(char *adminName,char *adminPW,char *oper);
 
-//¹ÜÀíÔ±µÄµÇÂ¼
+//ç®¡ç†å‘˜çš„ç™»å½•
 void adminLogin(){
 	char adminName_login[5];
 	char adminPW_login[5];
 	while(1){
-		printf("ÇëÊäÈë¹ÜÀíÔ±ÕËºÅ£º\n");
+		printf("è¯·è¾“å…¥ç®¡ç†å‘˜è´¦å·ï¼š\n");
 		scanf("%s",adminName_login);
-		printf("ÇëÊäÈë¹ÜÀíÔ±ÃÜÂë£º\n");
+		printf("è¯·è¾“å…¥ç®¡ç†å‘˜å¯†ç ï¼š\n");
 		scanf("%s",adminPW_login);
 		if(strcmp(adminName,adminName_login)==0 && strcmp(adminPW,adminPW_login)==0){
-			printf("¹ÜÀíÔ±µÇÂ¼³É¹¦\n");
+			printf("ç®¡ç†å‘˜ç™»å½•æˆåŠŸ\n");
 			break;
 		}else{
-			printf("ÕËºÅ»òÃÜÂë´íÎó\n");
+			printf("è´¦å·æˆ–å¯†ç é”™è¯¯\n");
 		}
 	}
 
 }
 
-//²é¿´ËùÓĞÓÃ»§
+//æŸ¥çœ‹æ‰€æœ‰ç”¨æˆ·
 void showAllUser(){
-	//Ö±½Ó´òÓ¡linknode¼´¿É
+	//ç›´æ¥æ‰“å°linknodeå³å¯
 	LinkNode *node;
-	char *oper = "²é¿´ËùÓĞÓÃ»§ĞÅÏ¢";  // µÇÂ¼²Ù×÷£¬Ğ´ÈëÈÕÖ¾ÎÄ¼ş
+	char *oper = "æŸ¥çœ‹æ‰€æœ‰ç”¨æˆ·ä¿¡æ¯";  // ç™»å½•æ“ä½œï¼Œå†™å…¥æ—¥å¿—æ–‡ä»¶
 	Customer* user;
 	node = nextNode(head);
-	printf("ËùÓĞÓÃ»§ĞÅÏ¢£º\n");
+	printf("æ‰€æœ‰ç”¨æˆ·ä¿¡æ¯ï¼š\n");
 	while(node){
 		user = (Customer*)malloc(sizeof(Customer));
 		user = ((Customer*)((DataType*)node->data)->value);
-		printf("ÕËºÅ¿ª»§Ê±¼ä£º%s,ÕË»§¿¨ºÅ£º%d£¬ÕË»§Ãû³Æ£º%s£¬ÊÖ»úºÅÂë£º%s£¬Éí·İÖ¤£º%s£¬ÃÜÂë£º%s£¬ÕË»§½ğ¶î£º%f\n",user->Time,user->accountCard,user->accountName,user->mobile,user->sfz,user->password,user->money);
+		printf("è´¦å·å¼€æˆ·æ—¶é—´ï¼š%s,è´¦æˆ·å¡å·ï¼š%dï¼Œè´¦æˆ·åç§°ï¼š%sï¼Œæ‰‹æœºå·ç ï¼š%sï¼Œèº«ä»½è¯ï¼š%sï¼Œå¯†ç ï¼š%sï¼Œè´¦æˆ·é‡‘é¢ï¼š%f\n",user->Time,user->accountCard,user->accountName,user->mobile,user->sfz,user->password,user->money);
 		node = nextNode(node);
 	}
 	adminLogsRecords(adminName,adminPW,oper);
 }
 
-//²é¿´µ¥¸öÓÃ»§µÄĞÅÏ¢ºÍ²Ù×÷¼ÇÂ¼
+//æŸ¥çœ‹å•ä¸ªç”¨æˆ·çš„ä¿¡æ¯å’Œæ“ä½œè®°å½•
 void showSignalUser(){
-	int accountCard; // ÕË»§¿¨ºÅ
-	char *oper = "²é¿´µ¥¸öÓÃ»§ĞÅÏ¢";
+	int accountCard; // è´¦æˆ·å¡å·
+	char *oper = "æŸ¥çœ‹å•ä¸ªç”¨æˆ·ä¿¡æ¯";
 	Customer* user = (Customer*)malloc(sizeof(Customer));
-	printf("ÇëÊäÈëÄúÒª²é¿´ÓÃ»§ĞÅÏ¢µÄÒøĞĞÕËºÅ£º\n");
+	printf("è¯·è¾“å…¥æ‚¨è¦æŸ¥çœ‹ç”¨æˆ·ä¿¡æ¯çš„é“¶è¡Œè´¦å·ï¼š\n");
 	scanf("%d",&accountCard);
 
 	while(1){
 		if((Customer*)getData(hashmap,accountCard) != NULL){
 			user = (Customer*)getData(hashmap,accountCard);
-			printf("ÄúĞèÒª²é¿´µÄÕË»§¿¨ºÅ %dµÄÓÃ»§ĞÅÏ¢ÊÇ£ºÕË»§Ãû³Æ£º%s£¬ÊÖ»úºÅÂë£º%s£¬Éí·İÖ¤£º%s£¬ÃÜÂë£º%s£¬ÕË»§½ğ¶î£º%f\n",user->accountCard,user->accountName,user->mobile,user->sfz,user->password,user->money);
+			printf("æ‚¨éœ€è¦æŸ¥çœ‹çš„è´¦æˆ·å¡å· %dçš„ç”¨æˆ·ä¿¡æ¯æ˜¯ï¼šè´¦æˆ·åç§°ï¼š%sï¼Œæ‰‹æœºå·ç ï¼š%sï¼Œèº«ä»½è¯ï¼š%sï¼Œå¯†ç ï¼š%sï¼Œè´¦æˆ·é‡‘é¢ï¼š%f\n",user->accountCard,user->accountName,user->mobile,user->sfz,user->password,user->money);
 			break;
 		}else{
-			printf("±§Ç¸£¬Äã²éÕÒµÄÓÃ»§²»´æÔÚ¡£Çë¼ÌĞø²Ù×÷\n");
+			printf("æŠ±æ­‰ï¼Œä½ æŸ¥æ‰¾çš„ç”¨æˆ·ä¸å­˜åœ¨ã€‚è¯·ç»§ç»­æ“ä½œ\n");
 			continue;
 		}
 	}
 	adminLogsRecords(adminName,adminPW,oper);
 }
 
-//²é¿´ÒøĞĞÕûÌå½ğ¶î±ä»¯--½ğ¶î±ä¶¯¼ÇÂ¼ÊÇ¼ÇÂ¼µ¥¸öÓÃ»§Ã¿Ò»´Î²Ù×÷ÁË½ğ¶î±ä»¯£¨Èç´æÈ¡¿î²Ù×÷£©£¬¶ÁÎÄ¼şÕ¹Ê¾³öÀ´£¬²¢ÔÚ×îºóÌí¼ÓÒ»¸ö
-//±äÁ¿¼ÇÂ¼×Ü½ğ¶î±ä»¯¼´¿É
+//æŸ¥çœ‹é“¶è¡Œæ•´ä½“é‡‘é¢å˜åŒ–--é‡‘é¢å˜åŠ¨è®°å½•æ˜¯è®°å½•å•ä¸ªç”¨æˆ·æ¯ä¸€æ¬¡æ“ä½œäº†é‡‘é¢å˜åŒ–ï¼ˆå¦‚å­˜å–æ¬¾æ“ä½œï¼‰ï¼Œè¯»æ–‡ä»¶å±•ç¤ºå‡ºæ¥ï¼Œå¹¶åœ¨æœ€åæ·»åŠ ä¸€ä¸ª
+//å˜é‡è®°å½•æ€»é‡‘é¢å˜åŒ–å³å¯
 void showBankMoney() {
     FILE *fp;
+	char *oper1 = "æŸ¥çœ‹é“¶è¡Œæ•´ä½“é‡‘é¢å˜åŒ–";
 	char time[30];
-	double money = 0.0; // ²Ù×÷µÄ½ğ¶î
-	double BankTotalMoney = 0.0; // ÒøĞĞ×ÜÌå½ğ¶î
+	double money = 0.0; // æ“ä½œçš„é‡‘é¢
+	double BankTotalMoney = 0.0; // é“¶è¡Œæ€»ä½“é‡‘é¢
 	char oper[20];
     int accountCard;
 
-    fp = fopen("ÒøĞĞ×Ü½ğ¶î±ä»¯ÎÄ¼ş.txt", "r");
+    fp = fopen("é“¶è¡Œæ€»é‡‘é¢å˜åŒ–æ–‡ä»¶.txt", "r");
     if (fp == NULL) {
-        perror("´ò¿ªÎÄ¼şÊ§°ÜÀ²");
+        perror("æ‰“å¼€æ–‡ä»¶å¤±è´¥å•¦");
         system("pause");
         exit(1);
     }
-	printf("ÒøĞĞÒøĞĞÕûÌå½ğ¶î±ä»¯£º\n");
+	printf("é“¶è¡Œé“¶è¡Œæ•´ä½“é‡‘é¢å˜åŒ–ï¼š\n");
     while (!feof(fp)) {
 		fscanf(fp,"%s %d %s %lf %lf\n",&time,&accountCard,&oper,&money,&BankTotalMoney);
 		printf("%s %d %s %lf %lf\n",time,accountCard,oper,money,BankTotalMoney);
 	}
+	adminLogsRecords(adminName,adminPW,oper1);
     fclose(fp);
 }
 
-// °ïÖúÓÃ»§ĞŞ¸ÄÃÜÂë
+// å¸®åŠ©ç”¨æˆ·ä¿®æ”¹å¯†ç 
 void assistUserChangePW(){
-	int accountCard; // ÕË»§¿¨ºÅ
-	char originPW[7]; // ÕËºÅÔ­ÃÜÂë
-	char password[7],password_confirm[7]; // ĞŞ¸ÄÃÜÂëºÍĞŞ¸ÄÃÜÂëµÄÈ·ÈÏÃÜÂë
-	char *oper = "°ïÖúÓÃ»§ĞŞ¸ÄÃÜÂë";
+	int accountCard; // è´¦æˆ·å¡å·
+	char originPW[7]; // è´¦å·åŸå¯†ç 
+	char password[7],password_confirm[7]; // ä¿®æ”¹å¯†ç å’Œä¿®æ”¹å¯†ç çš„ç¡®è®¤å¯†ç 
+	char *oper = "å¸®åŠ©ç”¨æˆ·ä¿®æ”¹å¯†ç ";
 	Customer* user = (Customer*)malloc(sizeof(Customer));
 	while(1){
-		printf("ÇëÊäÈëÄúÒªĞŞ¸ÄÃÜÂëµÄÒøĞĞÕËºÅ£º\n");
+		printf("è¯·è¾“å…¥æ‚¨è¦ä¿®æ”¹å¯†ç çš„é“¶è¡Œè´¦å·ï¼š\n");
 		scanf("%d",&accountCard);
-		printf("ÇëÊäÈëÄúÒªĞŞ¸ÄÃÜÂëµÄÔ­ÃÜÂë£º\n");
+		printf("è¯·è¾“å…¥æ‚¨è¦ä¿®æ”¹å¯†ç çš„åŸå¯†ç ï¼š\n");
 		scanf("%s",&originPW);
 		user = (Customer*)getData(hashmap,accountCard);
 		if(user != NULL){
 			if(strcmp(user->password,originPW) == 0){
-				printf("ÕËºÅÃÜÂëÆ¥Åä³É¹¦£¡\n");
-				printf("ÇëÊäÈëÄúĞèÒªĞŞ¸ÄµÄÃÜÂë\n");
+				printf("è´¦å·å¯†ç åŒ¹é…æˆåŠŸï¼\n");
+				printf("è¯·è¾“å…¥æ‚¨éœ€è¦ä¿®æ”¹çš„å¯†ç \n");
 				scanf("%s",&password);
-				printf("ÇëÔÙ´ÎÊäÈëÄúĞèÒªĞŞ¸ÄµÄÃÜÂë\n");
+				printf("è¯·å†æ¬¡è¾“å…¥æ‚¨éœ€è¦ä¿®æ”¹çš„å¯†ç \n");
 				scanf("%s",&password_confirm);
 				if(strcmp(user->password,password_confirm) != 0){
 					if(strcmp(password_confirm,password) == 0){
-						printf("Á½´ÎÊäÈëÃÜÂëÒ»ÖÂ\n");
+						printf("ä¸¤æ¬¡è¾“å…¥å¯†ç ä¸€è‡´\n");
 						break;
 					}else{
-						printf("Á½´ÎÊäÈëµÄÃÜÂë²»Ò»ÖÂ£¬Çë¼ÌĞø²Ù×÷");
+						printf("ä¸¤æ¬¡è¾“å…¥çš„å¯†ç ä¸ä¸€è‡´ï¼Œè¯·ç»§ç»­æ“ä½œ");
 						continue;
 					}
 				}else{
-					printf("ĞŞ¸ÄÃÜÂë²»ÄÜÓëÔ­ÃÜÂëÒ»ÖÂ£¡\n");
+					printf("ä¿®æ”¹å¯†ç ä¸èƒ½ä¸åŸå¯†ç ä¸€è‡´ï¼\n");
 					continue;
 				}
 			}else{
-				printf("¸ÃÓÃ»§ÃÜÂëÊäÈë´íÎó£¡\n");
+				printf("è¯¥ç”¨æˆ·å¯†ç è¾“å…¥é”™è¯¯ï¼\n");
 				continue;
 			}
 		}else{
-			printf("±§Ç¸£¬Äã²éÕÒµÄÓÃ»§²»´æÔÚ¡£Çë¼ÌĞø²Ù×÷\n");
+			printf("æŠ±æ­‰ï¼Œä½ æŸ¥æ‰¾çš„ç”¨æˆ·ä¸å­˜åœ¨ã€‚è¯·ç»§ç»­æ“ä½œ\n");
 			continue;
 			}
 	}
-	strcpy(user->password,password_confirm); // userÒÑ¾­Ö¸ÏòÁËhashmap£¬ÎªÊ²Ã´²»ÄÜÖ±½ÓĞŞ¸Ä
-	printf("ÃÜÂëĞŞ¸Ä³É¹¦£¡\n");
+	strcpy(user->password,password_confirm); // userå·²ç»æŒ‡å‘äº†hashmapï¼Œä¸ºä»€ä¹ˆä¸èƒ½ç›´æ¥ä¿®æ”¹
+	printf("å¯†ç ä¿®æ”¹æˆåŠŸï¼\n");
 	userUpgrade_filePut(head);
 	adminLogsRecords(adminName,adminPW,oper);
 	return;
 }
 
-//´ÓÎÄ¼şÖĞÈ¡³ö¹ÜÀíÔ±²Ù×÷ÈÕÖ¾
+//ä»æ–‡ä»¶ä¸­å–å‡ºç®¡ç†å‘˜æ“ä½œæ—¥å¿—
 void admin_fileGet(){
 	FILE *fp;
 	char ch[10],time[30];
-	fp = fopen("¹ÜÀíÔ±²Ù×÷ÈÕÖ¾ÎÄ¼ş.txt","r");
+	fp = fopen("ç®¡ç†å‘˜æ“ä½œæ—¥å¿—æ–‡ä»¶.txt","r");
 	if(fp == NULL){
-		perror("´ò¿ªÎÄ¼şÊ§°ÜÀ²");
+		perror("æ‰“å¼€æ–‡ä»¶å¤±è´¥å•¦");
 		system("pause");
 		exit(1);
 	}
 	while(!feof(fp)){
 		if(fscanf(fp,"%s\n",&ch)==1){
-				printf("¹ÜÀíÔ±µÄ²Ù×÷Îª£º%s %s",time,ch);
+				printf("ç®¡ç†å‘˜çš„æ“ä½œä¸ºï¼š%s %s",time,ch);
 			}else{
-				printf("¹ÜÀíÔ±ÔİÊ±Ã»ÓĞ²Ù×÷£¡\n");
+				printf("ç®¡ç†å‘˜æš‚æ—¶æ²¡æœ‰æ“ä½œï¼\n");
 				system("pause");
 			}
 		}
 	fclose(fp);
 }
 
-//½«¹ÜÀíÔ±²Ù×÷ÈÕÖ¾ÎÄ¼ş´æÈëÎÄ¼şÖĞ
+//å°†ç®¡ç†å‘˜æ“ä½œæ—¥å¿—æ–‡ä»¶å­˜å…¥æ–‡ä»¶ä¸­
 static void adminLogsRecords(char *adminName,char *adminPW,char *oper){
 	FILE *fp;
 	char time[30];
-	fp = fopen("¹ÜÀíÔ±²Ù×÷ÈÕÖ¾ÎÄ¼ş.txt","a");
+	fp = fopen("ç®¡ç†å‘˜æ“ä½œæ—¥å¿—æ–‡ä»¶.txt","a");
 	currentTime(time);
 	fprintf(fp,"%s %s %s %s\n",time,adminName,adminPW,oper);
 	fclose(fp);
